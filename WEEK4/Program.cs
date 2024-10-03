@@ -7,7 +7,7 @@ Input : 10 Output : Yes
 Input : 44 Output : NO */
 
 Console.WriteLine("Enter your number");
-var UserInput = int.TryParse(Console.ReadLine(), out int Number);
+int.TryParse(Console.ReadLine(), out int Number);
 if (Number % 5 == 0)
 {
     Console.WriteLine("YES");
@@ -28,9 +28,9 @@ ii. თუ უმცირესი რიცხვი იქნება 0 პ�
 შეცდომა 0 გაყოფა არ შეიძლება . */
 
 Console.WriteLine("Enter X Variable");
-var FirstInput = int.TryParse(Console.ReadLine(), out int X);
+int.TryParse(Console.ReadLine(), out int X);
 Console.WriteLine("Enter Y Variable");
-var SecondInput = int.TryParse(Console.ReadLine(),out int Y);
+int.TryParse(Console.ReadLine(),out int Y);
 
 if (X >= Y && Y != 0)
 {
@@ -71,9 +71,9 @@ else
 Output : x =12 ; y = 5;*/
 
 Console.WriteLine("type M number");
-var Firstnum = int.TryParse(Console.ReadLine(), out int M);
+int.TryParse(Console.ReadLine(), out int M);
 Console.WriteLine("type O number");
-var Secondnum = int.TryParse(Console.ReadLine(), out int O);
+int.TryParse(Console.ReadLine(), out int O);
 int A = M + O - M;
 int Z = O + M - O;
 Console.WriteLine($"M = {A}");
@@ -87,7 +87,7 @@ Console.WriteLine($"O = {Z}");
 a. შენიშვნა : გამოიყენეთ ციკლი.*/
 
 Console.WriteLine("Enter any number");
-var Anynumber = int.TryParse(Console.ReadLine(), out int Num);
+int.TryParse(Console.ReadLine(), out int Num);
 int max = 10;
 for (int i=0; i<max; i++)
 {   
@@ -101,7 +101,7 @@ for (int i=0; i<max; i++)
 დაბეჭდავს მათ კვადრატებს .*/
 
 Console.WriteLine("Type N number");
-var GivenNum = int.TryParse(Console.ReadLine(), out int N);
+int.TryParse(Console.ReadLine(), out int N);
 for (int i = 0; i < N; i++)
 {
     if (i % 2 == 0) {

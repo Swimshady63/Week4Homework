@@ -19,28 +19,29 @@ Console.WriteLine(Math.Round(answer));
 #endregion
 
 #region Exercise 2
-/* გავაკეთებ ორ ქეისს, ქეისი 1 იქნება კოდი როდესაც დავარანდომებ 7 რანდომ ქერაქთერს,
- * სადაც თუ 7ვე ქერაქთერი იგივე იქნება, კონსოლი პრინტავს "მოიგე ჯეკპოტი"
- * სხვა შემთხვევაში "არა". პირველი შემთხვევისთვის მივანიჭებ 6 ქერაქთერს და მე7ეს დავარნდომებ
+/*დაწერეთ პროგრამა რომელიც შეამოწმებს ამოუვიდა თუ არა იუზერს
+ჯეკპოტი
  */
 
-//Console.WriteLine("Type to win a Jackpot:");
+Console.WriteLine("Type to win a Jackpot:");
 
-//char [] values = new char[5];
-//int count = 0;
-//for (int i = 0; i < values.Length; i++)
-//{   
-//    char Input = char.Parse(Console.ReadLine());
-//    values[i] = Input;
-//    if (values[0] == values[i]) count++;
-//}
+char[] values = new char[5];
+int count = 0;
+for (int i = 0; i < values.Length; i++)
+{
+    char Input = char.Parse(Console.ReadLine());
+    values[i] = Input;
+    if (values[0] == values[i]) count++;
+}
 
-//if (count == 5)
-//{
-//    Console.WriteLine("You hit a Jackpot");
-//}
-//else{ Console.WriteLine ("You didn't win today");
-//}
+if (count == 5)
+{
+    Console.WriteLine("You hit a Jackpot");
+}
+else
+{
+    Console.WriteLine("You didn't win today");
+}
 
 
 

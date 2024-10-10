@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Linq;
+
 #region Exercise 1
 Console.WriteLine("Enter the radius of a circle");
 double r = int.Parse(Console.ReadLine());
@@ -99,7 +100,7 @@ for (int i = 0; i < 5; i++)
         sum += WorkingHours[i] * OneHourPay;
     }
 }
-if (WorkingHours[5] > 0 && WorkingHours[6] > 0)
+if (WorkingHours[5] > 0 || WorkingHours[6] > 0)
 {
     sum += (WorkingHours[5] + WorkingHours[6]) * WeekendsPay;
 

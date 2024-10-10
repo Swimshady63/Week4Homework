@@ -12,8 +12,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 internal class Program
 {
+
+
+
     private static void Main(string[] args)
-    { 
+    {
         //Exercise 1 output
         Console.Write("Exercise 1\n");
         Console.Write($"Amount of {2}'s power numbers : {Exercise1(49, 71, 2)} \n");
@@ -33,14 +36,16 @@ internal class Program
         Console.WriteLine($"{Exercise4<bool>(bools)}\n");
 
         //Exercise 3 output
-        Console.WriteLine(Exercise3("multiplication", "multiplication"));
+        Console.WriteLine(Exercise3("multiplication", "subscription"));
         Console.Write("\n");
 
         //Exercise 6 output
-        int[] task6 =new int[] { 1, 2, 3, 4, 5, 6 };
+        int[] task6 = new int[] { 1, 2, 3, 4, 5, 6 };
 
         Console.WriteLine(Exercise6(task6));
         Console.Write("\n");
+        //Exercise 5 output
+        Recursion5(1283);
     }
 
 
@@ -81,7 +86,8 @@ c. n - ხარისხი რომელშიც უნდა ავიყ�
     //Exercise 2 method
     /*დაეხმარეთ პატარა ნიკუშას წინდების წყვილების პოვნაში. წყვილები
     აღნიშნულია ორი ერთნაირი სიმბოლოთი.*/
-    static private string Exercise2(string word) {
+    static private string Exercise2(string word)
+    {
 
         char[] chars = word.ToCharArray();
         int items = 0;
@@ -103,15 +109,20 @@ c. n - ხარისხი რომელშიც უნდა ავიყ�
      */
     static private string Exercise3(string word1, string word2)
     {
-        int sufixLength = 0;
+        int i = word1.Length - 1;
+        string sameword = "";
 
-        for (int i = 0; i < Math.Min(word1.Length, word2.Length); i++)
+        for (int j = word2.Length - 1; j >= 0; j--)
         {
-            if (word1[i] == word2[i]) sufixLength++;
-
+            if (word1[i] == word2[j]) { sameword += word1[i]; }
+            else break;
+            i--;
+            if (i < 0) { break; }
         }
 
-        return word1.Substring(0, sufixLength);
+        char[] suffixarray = sameword.ToCharArray();
+        Array.Reverse(suffixarray);
+        return new string(suffixarray);
 
     }
 
@@ -182,12 +193,22 @@ c. n - ხარისხი რომელშიც უნდა ავიყ�
     /*დაწერეთ ფუნქცია რომელიც დაბეჭდავს რიცხვში შემავალ ყოველ სიმბოლოს .
      Input : 12345
      Output : 1 - 2 - 3 - 4 - 5 */
+    static void Recursion5(int n)
+    {
+        int m = 0;
 
-    //static int Exercise5(int n)
-    //{
-        
-    //}
+        m = n % 10;
+        n = n / 10;
 
+        if (n > 0)
+        {
+            Recursion5(n);
+
+        }
+
+        Console.Write(m + " - ");
+
+    }
 
 }
 

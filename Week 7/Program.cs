@@ -45,7 +45,7 @@ internal class Program
         Console.WriteLine(Exercise6(task6));
         Console.Write("\n");
         //Exercise 5 output
-        Recursion5(1283);
+        Recursion5(12345);
     }
 
 
@@ -195,9 +195,9 @@ c. n - ხარისხი რომელშიც უნდა ავიყ�
      Output : 1 - 2 - 3 - 4 - 5 */
     static void Recursion5(int n)
     {
-        int m = 0;
+       
 
-        m = n % 10;
+       int  m = n % 10;
         n = n / 10;
 
         if (n > 0)

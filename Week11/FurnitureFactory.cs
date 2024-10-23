@@ -8,85 +8,83 @@ using Week11;
 
 namespace Week11
 {
-    public abstract class FurnitureFactory 
+    public abstract class FurnitureFactory
     {
-        public abstract void CreateChair();
-        public abstract void CreateTable();
-        public abstract void CreateSofa();
-       
+        public abstract Chair CreateChair();
+        public abstract Table CreateTable();
+        public abstract Sofa  CreateSofa();
+
     }
 
-    class VictorianFurnitureFactory : FurnitureFactory
+    public class VictorianFurnitureFactory : FurnitureFactory
     {
-       public override void CreateChair()
+        public override Chair CreateChair()
         {
-            VictorianChair chair = new VictorianChair();
-            
-            chair.HasLegs();
-            chair.SitOn();
+            return new VictorianChair();
 
         }
-        public override void CreateSofa()
+        public override Sofa CreateSofa()
         {
-            VictorianSofa sofa = new VictorianSofa();
+            return new VictorianSofa();
+        }
+
+        public override Table CreateTable()
+        {
+            return new VictorianTable();
+        }
+
+    }
+    public class ModernFurnitureFactory : FurnitureFactory
+    {
+        public override Chair CreateChair()
+        {
+            return new ModernChair();
+        }
+        public override Sofa CreateSofa()
+        {
+            return new ModernSofa();
+        }
+
+        public override Table CreateTable()
+        {
+            return new ModernTable();
+        }
+    }
+    public class ArtDecoFurnitureFactory : FurnitureFactory
+    {
+        public override Chair CreateChair()
+        {
+            return new ArtDecoChair();
+        }
+        public override Sofa CreateSofa()
+        {
+            return new ArtDecoSofa();
+        }
+
+        public override Table CreateTable()
+        {
+            return new ArtDecoTable();
+        }
+    }
+
+    public class Client
+    {
+        private Sofa  sofa;
+        private Chair chair;
+        private Table table;
+        public Client(FurnitureFactory factory)
+        {
+            sofa  = factory.CreateSofa();
+            chair = factory.CreateChair();
+            table = factory.CreateTable();
+        }
+        public void Run()
+        {
             sofa.HasLegs();
-            sofa.SitOn();
-        }
-
-        public override void CreateTable()
-        {
-            VictorianTable table = new VictorianTable();
-            table.HasLegs();
-            table.SitOn();
-        }
-        
-    }
-     class ModernFurnitureFactory : FurnitureFactory
-    {
-        public override void CreateChair()
-        {
-            ModernChair chair = new ModernChair();
             chair.HasLegs();
-            chair.SitOn();
-        }
-        public override void CreateSofa()
-        {
-            ModernSofa sofa = new ModernSofa();
-            sofa.HasLegs();
-            sofa.SitOn();
-        }
-
-        public override void CreateTable()
-        {
-            ModernTable table = new ModernTable();
             table.HasLegs();
-            table.SitOn();
         }
     }
-     class ArtDecoFurnitureFactory : FurnitureFactory
-{
-    public override void CreateChair()
-    {
-        ArtDecoChair chair = new ArtDecoChair();
-        chair.HasLegs();
-        chair.SitOn();
-    }
-    public override void CreateSofa()
-    {
-        ArtDecoSofa sofa = new ArtDecoSofa();
-        sofa.HasLegs();
-        sofa.SitOn();
-    }
-
-    public override void CreateTable()
-    {
-        ArtDecoTable table = new ArtDecoTable();
-        table.HasLegs();
-        table.SitOn();
-    }
-}
-
-    
 }
 
 

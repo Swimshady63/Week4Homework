@@ -6,37 +6,27 @@ using System.Threading.Tasks;
 
 namespace Week11
 {
-    public class JobResponsibilities
+     abstract class JobResponsibilities
     {
-        public void MainJob()
-        {
-
-        }
-        public void AdditionalJob()
-        {
-
-        }
+        public abstract void Job();
+        
     }
-    public class MainActor : JobResponsibilities
-    {   public void MainJob()
-        {
-         Console.WriteLine("Acting solely on simple scenes");
-        }
-        public void AdditionalJob()
-        {
-            Console.WriteLine("Nothing much");
-        }
-
+     class Actor : JobResponsibilities
+    {   public override void Job()
+        { Console.WriteLine("Acting solely on simple scenes"); }  
     }
-    public class SecondaryActor : JobResponsibilities
+    class Proxy : JobResponsibilities
     {
-        public void MainJob() {
-            Console.WriteLine("Acting in Movie scenes");
-        }
-
-        public void AdditionalJob()
+        Actor actor;
+        public override void Job()
         {
-            Console.WriteLine("Doing dangerous stuff");
+            if (actor == null)
+            {
+                actor = new Actor();
+                actor.Job();
+                Console.WriteLine("Doing dangerous stuff");
+         
+            }
         }
     }
 }

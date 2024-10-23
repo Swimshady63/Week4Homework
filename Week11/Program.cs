@@ -1,26 +1,62 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+using System.Runtime.Intrinsics.X86;
 using Week11;
 
 
-//Abstract Factory:
-
-VictorianFurnitureFactory victorianFurniture = new VictorianFurnitureFactory();
-victorianFurniture.CreateTable();
-victorianFurniture.CreateSofa();
-victorianFurniture.CreateChair();
 
 
-//-------------------- Task 2:
+internal class Program
+{
+    private static void Main(string[] args)
+    {   //Abstract Factory:
+         Task1();
+        //Proxy
+         Task2();
+        //Facade
+         Task3();
+        //Strategy
+         Task4();
+    }
 
-MainActor mainActor = new MainActor();
-mainActor.MainJob();
-mainActor.AdditionalJob();
-SecondaryActor secondaryActor = new SecondaryActor();
-secondaryActor.MainJob();
-secondaryActor.AdditionalJob();
 
-//-------------------- Task 3;
+    static void Task1()
+    {
+        Client client = new Client(new VictorianFurnitureFactory());
+        client.Run();
 
-ReportGenerator report = new ReportGenerator();
-report.GenerateHTMLreport();
-report.GeneratePDFreport();
+    }
+
+    static void Task2()
+    {
+        JobResponsibilities jobResponsibilities = new Proxy();
+        jobResponsibilities.Job();
+
+        Actor actor = new Actor();
+        actor.Job();
+       
+
+    }
+
+    static void Task3()
+    {
+        ReportGenerator report = new ReportGenerator();
+        report.GenerateHTMLreport();
+        report.GeneratePDFreport();
+
+    }
+
+    static void Task4()
+    {
+        Format format;
+        format = new Format(new JsonFile());
+        format.FormatStrategy();
+    
+        format = new Format(new TxtFile());
+        format.FormatStrategy();
+
+        format = new Format(new ZIPFile());
+        format.FormatStrategy();
+
+    }
+}
+
